@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ahmet Onur - IBAN Ödeme</title>
+<style>
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  background:#f4f5f7;
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center
+}
+.card{
+  background:#fff;
+  width:min(92%,420px);
+  padding:28px;
+  border-radius:22px;
+  box-shadow:0 8px 30px rgba(0,0,0,.10);
+  text-align:center
+}
+h1{margin:0 0 6px;font-size:25px}
+.bank{font-weight:700;color:#b00020;margin-bottom:22px}
+.label{font-size:13px;color:#777;margin-top:12px}
+.name{font-size:18px;font-weight:700;margin:5px 0 12px}
+.iban{
+  background:#f1f3f5;
+  border-radius:14px;
+  padding:15px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.4px;
+  word-break:break-all
+}
+button{
+  width:100%;
+  border:0;
+  border-radius:14px;
+  padding:15px;
+  margin-top:16px;
+  font-size:17px;
+  font-weight:700;
+  cursor:pointer;
+  background:#111;
+  color:#fff
+}
+.note{font-size:13px;color:#777;margin-top:14px}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>IBAN ile Ödeme</h1>
+  <div class="bank">İş Bankası</div>
+  <div class="label">Alıcı</div>
+  <div class="name">Ahmet Onur</div>
+  <div class="label">IBAN</div>
+  <div class="iban">TR08 0006 4000 0018 3040 4753 86</div>
+  <button onclick="copyIBAN()">📋 IBAN'ı Kopyala</button>
+  <div class="note" id="status">
+    IBAN'ı kopyalayarak mobil bankacılık uygulamanızdan ödeme yapabilirsiniz.
+  </div>
+</div>
+<script>
+function copyIBAN(){
+  const iban="TR080006400000183040475386";
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(iban);
+  } else {
+    const t=document.createElement("textarea");
+    t.value=iban;
+    document.body.appendChild(t);
+    t.select();
+    document.execCommand("copy");
+    t.remove();
+  }
+  document.getElementById("status").textContent="✅ IBAN kopyalandı.";
+}
+</script>
+</body>
+</html>
