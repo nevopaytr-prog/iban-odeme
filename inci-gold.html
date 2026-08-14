@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>İnci Gold - Ödeme</title>
 
 <style>
@@ -16,23 +15,23 @@ body {
     margin: 0;
     min-height: 100vh;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #0b0b0b, #1b1b1b);
+    background: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    color: white;
+    color: #111111;
 }
 
 .kart {
     width: 100%;
     max-width: 430px;
-    background: linear-gradient(145deg, #151515, #080808);
-    border: 1px solid #b89542;
+    background: #ffffff;
+    border: 2px solid #d4af37;
     border-radius: 28px;
     padding: 35px 25px;
     text-align: center;
-    box-shadow: 0 15px 45px rgba(0,0,0,0.6);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.12);
 }
 
 .logo {
@@ -44,21 +43,21 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #d4af37;
-    font-size: 30px;
+    color: #b08d20;
+    font-size: 28px;
     font-weight: bold;
 }
 
 h1 {
     margin: 0;
     font-size: 32px;
-    color: #d4af37;
+    color: #b08d20;
     letter-spacing: 1px;
 }
 
 .alt {
     margin-top: 8px;
-    color: #aaa;
+    color: #777777;
     font-size: 14px;
     letter-spacing: 2px;
 }
@@ -71,21 +70,21 @@ h1 {
 }
 
 .bilgi {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(212,175,55,0.35);
+    background: #fafafa;
+    border: 1px solid #dddddd;
     border-radius: 16px;
     padding: 20px;
     text-align: left;
 }
 
 .baslik {
-    color: #aaa;
+    color: #777777;
     font-size: 13px;
     margin-bottom: 7px;
 }
 
 .deger {
-    color: white;
+    color: #111111;
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 18px;
@@ -95,7 +94,7 @@ h1 {
     font-size: 16px;
     line-height: 1.7;
     word-break: break-all;
-    color: #f1f1f1;
+    color: #111111;
 }
 
 button {
@@ -104,28 +103,27 @@ button {
     padding: 16px;
     border: none;
     border-radius: 14px;
-    background: linear-gradient(135deg, #d4af37, #f0d477);
-    color: #111;
+    background: #d4af37;
+    color: #111111;
     font-size: 17px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.2s;
 }
 
 button:hover {
-    transform: scale(1.02);
+    background: #c29f2f;
 }
 
 .mesaj {
     display: none;
     margin-top: 15px;
-    color: #d4af37;
+    color: #b08d20;
     font-weight: bold;
 }
 
 .altbilgi {
     margin-top: 22px;
-    color: #777;
+    color: #888888;
     font-size: 12px;
 }
 </style>
@@ -188,7 +186,6 @@ button:hover {
 </div>
 
 <script>
-
 function kopyala() {
 
     const iban = "TR850020500009414456100003";
@@ -204,9 +201,7 @@ function kopyala() {
         }, 2500);
 
     });
-
 }
-
 </script>
 
 </body>
