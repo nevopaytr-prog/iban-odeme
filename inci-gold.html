@@ -2,123 +2,211 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İnci Gold - IBAN</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+<title>İnci Gold - Ödeme</title>
 
-        .kart {
-            background: white;
-            width: 90%;
-            max-width: 400px;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-            text-align: center;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        h1 {
-            margin-bottom: 10px;
-            font-size: 28px;
-        }
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0b0b0b, #1b1b1b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: white;
+}
 
-        .banka {
-            color: #666;
-            font-size: 17px;
-            margin-bottom: 25px;
-        }
+.kart {
+    width: 100%;
+    max-width: 430px;
+    background: linear-gradient(145deg, #151515, #080808);
+    border: 1px solid #b89542;
+    border-radius: 28px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.6);
+}
 
-        .etiket {
-            text-align: left;
-            font-size: 14px;
-            color: #777;
-            margin-bottom: 6px;
-        }
+.logo {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    border: 2px solid #d4af37;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #d4af37;
+    font-size: 30px;
+    font-weight: bold;
+}
 
-        .iban {
-            background: #f1f1f1;
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 17px;
-            font-weight: bold;
-            word-break: break-all;
-            margin-bottom: 20px;
-        }
+h1 {
+    margin: 0;
+    font-size: 32px;
+    color: #d4af37;
+    letter-spacing: 1px;
+}
 
-        button {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 10px;
-            background: #000;
-            color: white;
-            font-size: 17px;
-            cursor: pointer;
-        }
+.alt {
+    margin-top: 8px;
+    color: #aaa;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
 
-        button:hover {
-            background: #333;
-        }
+.cizgi {
+    width: 70px;
+    height: 2px;
+    background: #d4af37;
+    margin: 25px auto;
+}
 
-        .mesaj {
-            margin-top: 15px;
-            color: green;
-            font-weight: bold;
-            display: none;
-        }
-    </style>
+.bilgi {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(212,175,55,0.35);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: left;
+}
+
+.baslik {
+    color: #aaa;
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.deger {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.iban {
+    font-size: 16px;
+    line-height: 1.7;
+    word-break: break-all;
+    color: #f1f1f1;
+}
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #d4af37, #f0d477);
+    color: #111;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.02);
+}
+
+.mesaj {
+    display: none;
+    margin-top: 15px;
+    color: #d4af37;
+    font-weight: bold;
+}
+
+.altbilgi {
+    margin-top: 22px;
+    color: #777;
+    font-size: 12px;
+}
+</style>
 </head>
 
 <body>
 
 <div class="kart">
 
+    <div class="logo">İG</div>
+
     <h1>İnci Gold</h1>
 
-    <div class="banka">
-        Kuveyt Türk Katılım Bankası
+    <div class="alt">
+        GÜVENLİ ÖDEME
     </div>
 
-    <div class="etiket">
-        IBAN
-    </div>
+    <div class="cizgi"></div>
 
-    <div class="iban" id="iban">
-        TR850020500009414456100003
+    <div class="bilgi">
+
+        <div class="baslik">
+            HESAP SAHİBİ
+        </div>
+
+        <div class="deger">
+            Mehmet Meki Deniz
+        </div>
+
+        <div class="baslik">
+            BANKA
+        </div>
+
+        <div class="deger">
+            Kuveyt Türk Katılım Bankası
+        </div>
+
+        <div class="baslik">
+            IBAN
+        </div>
+
+        <div class="deger iban" id="iban">
+            TR85 00205 0000 9414 4561 0000 03
+        </div>
+
     </div>
 
     <button onclick="kopyala()">
-        IBAN'ı Kopyala
+        IBAN'I KOPYALA
     </button>
 
     <div class="mesaj" id="mesaj">
-        IBAN kopyalandı!
+        ✓ IBAN kopyalandı
+    </div>
+
+    <div class="altbilgi">
+        Ödeme yapmak için yukarıdaki IBAN'ı kullanabilirsiniz.
     </div>
 
 </div>
 
 <script>
+
 function kopyala() {
-    const iban = document.getElementById("iban").innerText;
+
+    const iban = "TR850020500009414456100003";
 
     navigator.clipboard.writeText(iban).then(function() {
-        document.getElementById("mesaj").style.display = "block";
+
+        const mesaj = document.getElementById("mesaj");
+
+        mesaj.style.display = "block";
 
         setTimeout(function() {
-            document.getElementById("mesaj").style.display = "none";
-        }, 2000);
+            mesaj.style.display = "none";
+        }, 2500);
+
     });
+
 }
+
 </script>
 
 </body>
