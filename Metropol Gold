@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metropol Gold - IBAN</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #111111, #2b2b2b);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .card {
+            width: 90%;
+            max-width: 430px;
+            background: #ffffff;
+            color: #222;
+            border-radius: 22px;
+            padding: 30px 22px;
+            text-align: center;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.45);
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .gold {
+            color: #c79a28;
+        }
+
+        .bank {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .info {
+            background: #f5f5f5;
+            border-radius: 14px;
+            padding: 18px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .label {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 6px;
+        }
+
+        .value {
+            font-size: 17px;
+            font-weight: bold;
+            word-break: break-all;
+        }
+
+        button {
+            width: 100%;
+            border: none;
+            border-radius: 12px;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            background: #c79a28;
+            color: white;
+            margin-top: 5px;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="logo">
+        METROPOL <span class="gold">GOLD</span>
+    </div>
+
+    <div class="bank">
+        Ziraat Bankası
+    </div>
+
+    <div class="info">
+        <div class="label">Hesap Sahibi</div>
+        <div class="value">Abdusselam Çelik</div>
+    </div>
+
+    <div class="info">
+        <div class="label">IBAN</div>
+        <div class="value" id="iban">
+            TR640001002000613225645002
+        </div>
+    </div>
+
+    <button onclick="copyIBAN()">
+        IBAN'I KOPYALA
+    </button>
+
+    <div class="footer">
+        Metropol Gold
+    </div>
+
+</div>
+
+<script>
+function copyIBAN() {
+    const iban = "TR640001002000613225645002";
+
+    navigator.clipboard.writeText(iban).then(function() {
+        alert("IBAN kopyalandı!");
+    });
+}
+</script>
+
+</body>
+</html>
