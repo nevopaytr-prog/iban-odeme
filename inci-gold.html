@@ -1,9 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mehmet Meki Deniz - IBAN</title>
+    <title>İnci Gold - IBAN</title>
 
     <style>
         body {
@@ -28,12 +29,20 @@
 
         h1 {
             margin-bottom: 10px;
-            font-size: 25px;
+            font-size: 28px;
         }
 
         .banka {
             color: #666;
+            font-size: 17px;
             margin-bottom: 25px;
+        }
+
+        .etiket {
+            text-align: left;
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 6px;
         }
 
         .iban {
@@ -74,10 +83,14 @@
 
 <div class="kart">
 
-    <h1>Mehmet Meki Deniz</h1>
+    <h1>İnci Gold</h1>
 
     <div class="banka">
-        IBAN Bilgileri
+        Kuveyt Türk Katılım Bankası
+    </div>
+
+    <div class="etiket">
+        IBAN
     </div>
 
     <div class="iban" id="iban">
@@ -98,15 +111,16 @@
 function kopyala() {
     const iban = document.getElementById("iban").innerText;
 
-    navigator.clipboard.writeText(iban);
+    navigator.clipboard.writeText(iban).then(function() {
+        document.getElementById("mesaj").style.display = "block";
 
-    document.getElementById("mesaj").style.display = "block";
-
-    setTimeout(function() {
-        document.getElementById("mesaj").style.display = "none";
-    }, 2000);
+        setTimeout(function() {
+            document.getElementById("mesaj").style.display = "none";
+        }, 2000);
+    });
 }
 </script>
 
 </body>
 </html>
+```
