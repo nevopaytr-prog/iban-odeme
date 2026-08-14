@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mehmet Meki Deniz - IBAN</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .kart {
+            background: white;
+            width: 90%;
+            max-width: 400px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 25px;
+        }
+
+        .banka {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .iban {
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: bold;
+            word-break: break-all;
+            margin-bottom: 20px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #000;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #333;
+        }
+
+        .mesaj {
+            margin-top: 15px;
+            color: green;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="kart">
+
+    <h1>Mehmet Meki Deniz</h1>
+
+    <div class="banka">
+        IBAN Bilgileri
+    </div>
+
+    <div class="iban" id="iban">
+        TR850020500009414456100003
+    </div>
+
+    <button onclick="kopyala()">
+        IBAN'ı Kopyala
+    </button>
+
+    <div class="mesaj" id="mesaj">
+        IBAN kopyalandı!
+    </div>
+
+</div>
+
+<script>
+function kopyala() {
+    const iban = document.getElementById("iban").innerText;
+
+    navigator.clipboard.writeText(iban);
+
+    document.getElementById("mesaj").style.display = "block";
+
+    setTimeout(function() {
+        document.getElementById("mesaj").style.display = "none";
+    }, 2000);
+}
+</script>
+
+</body>
+</html>
