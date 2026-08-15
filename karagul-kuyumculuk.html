@@ -3,203 +3,242 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Karagul Kuyumculuk</title>
+<title>Karagul Kuyumculuk - Odeme</title>
 
 <style>
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #111;
+    margin: 0;
     min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    color: #111111;
 }
 
-.card {
+.kart {
     width: 100%;
-    max-width: 420px;
-    background: #fff;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 35px rgba(0,0,0,0.5);
-}
-
-/* UST BASLIK */
-.header {
-    background: #111;
-    color: white;
+    max-width: 430px;
+    background: #ffffff;
+    border: 2px solid #d4af37;
+    border-radius: 28px;
+    padding: 35px 25px;
     text-align: center;
-    padding: 25px 15px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.12);
 }
 
-.header h1 {
-    color: #d4af37;
-    font-size: 30px;
-    margin-bottom: 5px;
-}
-
-.header p {
-    font-size: 15px;
-    color: #ddd;
-}
-
-/* ICERIK */
-.content {
-    padding: 25px 20px;
-    text-align: center;
-}
-
-.bank {
-    font-size: 18px;
+.logo {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    border: 2px solid #d4af37;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #b08d20;
+    font-size: 28px;
     font-weight: bold;
-    margin-bottom: 20px;
 }
 
-.label {
-    color: #777;
+h1 {
+    margin: 0;
+    font-size: 32px;
+    color: #b08d20;
+    letter-spacing: 1px;
+}
+
+.alt {
+    margin-top: 8px;
+    color: #777777;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.cizgi {
+    width: 70px;
+    height: 2px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+.bilgi {
+    background: #fafafa;
+    border: 1px solid #dddddd;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: left;
+}
+
+.baslik {
+    color: #777777;
     font-size: 13px;
-    margin-top: 15px;
-    margin-bottom: 5px;
+    margin-bottom: 7px;
 }
 
-.name {
-    font-size: 21px;
+.deger {
+    color: #111111;
+    font-size: 16px;
     font-weight: bold;
+    margin-bottom: 18px;
 }
 
 .iban {
-    margin-top: 8px;
-    padding: 15px 8px;
-    border: 2px solid #d4af37;
-    border-radius: 12px;
-    background: #f7f7f7;
-    font-size: 17px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    word-break: break-all;
-}
-
-/* ACIKLAMA */
-.description {
-    margin-top: 20px;
-    padding: 14px;
-    border-radius: 10px;
-    background: #fff8df;
-    border: 1px solid #d4af37;
-}
-
-.description .title {
-    font-size: 13px;
-    color: #777;
-    margin-bottom: 5px;
-}
-
-.description .text {
-    font-size: 17px;
-    font-weight: bold;
-}
-
-/* INSTAGRAM */
-.instagram {
-    display: inline-block;
-    margin-top: 22px;
-    text-decoration: none;
-    color: #111;
-    font-weight: bold;
     font-size: 16px;
+    line-height: 1.7;
+    word-break: break-all;
+    color: #111111;
 }
 
-.instagram span {
-    color: #c08b00;
+.aciklama-not {
+    margin-top: -8px;
+    margin-bottom: 18px;
+    color: #777777;
+    font-size: 13px;
+    line-height: 1.5;
 }
 
-/* ALT */
-.footer {
-    background: #111;
-    color: #aaa;
-    text-align: center;
-    padding: 14px;
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    background: #d4af37;
+    color: #111111;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #c29f2f;
+}
+
+.mesaj {
+    display: none;
+    margin-top: 15px;
+    color: #b08d20;
+    font-weight: bold;
+}
+
+.instagram {
+    display: block;
+    margin-top: 20px;
+    color: #b08d20;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.altbilgi {
+    margin-top: 22px;
+    color: #888888;
     font-size: 12px;
-}
-
-.footer strong {
-    color: #d4af37;
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
+<div class="kart">
 
-    <!-- BASLIK -->
-    <div class="header">
-        <h1>Karagul Kuyumculuk</h1>
-        <p>Odeme Bilgileri</p>
+    <div class="logo">KK</div>
+
+    <h1>Karagul Kuyumculuk</h1>
+
+    <div class="alt">
+        GUVENLI ODEME
     </div>
 
-    <!-- BILGILER -->
-    <div class="content">
+    <div class="cizgi"></div>
 
-        <div class="bank">
-            Turkiye Is Bankasi
+    <div class="bilgi">
+
+        <div class="baslik">
+            HESAP SAHIBI
         </div>
 
-        <div class="label">
-            ALICI
-        </div>
-
-        <div class="name">
+        <div class="deger">
             Rifat Karagul
         </div>
 
-        <div class="label">
+        <div class="baslik">
+            BANKA
+        </div>
+
+        <div class="deger">
+            Turkiye Is Bankasi
+        </div>
+
+        <div class="baslik">
             IBAN
         </div>
 
-        <div class="iban">
-            TR810006400000183040549247
+        <div class="deger iban" id="iban">
+            TR81 0006 4000 0018 3040 5492 47
         </div>
 
-        <!-- ACIKLAMA -->
-        <div class="description">
-
-            <div class="title">
-                ACIKLAMA
-            </div>
-
-            <div class="text">
-                Altin Bedeli &amp; T.C.
-            </div>
-
+        <div class="baslik">
+            ACIKLAMA
         </div>
 
-        <!-- INSTAGRAM -->
-        <a
-            class="instagram"
-            href="https://www.instagram.com/karagul_kuyumculuk/"
-            target="_blank"
-        >
-            Instagram:
-            <span>@karagul_kuyumculuk</span>
-        </a>
+        <div class="deger">
+            Altin Bedeli &amp; T.C.
+        </div>
+
+        <div class="aciklama-not">
+            Aciklama kismina <strong>Altin Bedeli &amp; T.C.</strong> yaziniz.
+        </div>
 
     </div>
 
-    <!-- FOOTER -->
-    <div class="footer">
-        <strong>Karagul Kuyumculuk</strong>
+    <button onclick="kopyala()">
+        IBAN'I KOPYALA
+    </button>
+
+    <div class="mesaj" id="mesaj">
+        ✓ IBAN kopyalandi
+    </div>
+
+    <a
+        class="instagram"
+        href="https://www.instagram.com/karagul_kuyumculuk/"
+        target="_blank"
+    >
+        Instagram: @karagul_kuyumculuk
+    </a>
+
+    <div class="altbilgi">
+        Odeme yapmak icin yukaridaki IBAN'i kullanabilirsiniz.
     </div>
 
 </div>
+
+<script>
+function kopyala() {
+
+    const iban = "TR810006400000183040549247";
+
+    navigator.clipboard.writeText(iban).then(function() {
+
+        const mesaj = document.getElementById("mesaj");
+
+        mesaj.style.display = "block";
+
+        setTimeout(function() {
+            mesaj.style.display = "none";
+        }, 2500);
+
+    });
+}
+</script>
 
 </body>
 </html>
