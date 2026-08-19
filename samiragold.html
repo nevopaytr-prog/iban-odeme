@@ -114,11 +114,6 @@ button,
   color:#111;
 }
 
-.sound{
-  background:#eee;
-  color:#111;
-}
-
 .status{
   min-height:20px;
   margin-top:12px;
@@ -146,13 +141,17 @@ button,
     Güvenli IBAN Ödeme
   </div>
 
-  <div class="label">HESAP SAHİBİ</div>
+  <div class="label">
+    HESAP SAHİBİ
+  </div>
 
   <div class="name">
     Muhammed Raşit Çiçekli
   </div>
 
-  <div class="label">IBAN</div>
+  <div class="label">
+    IBAN
+  </div>
 
   <div class="iban-box">
     <div class="iban" id="iban">
@@ -167,13 +166,10 @@ button,
   <a
     class="instagram"
     href="https://www.instagram.com/samiraagold"
-    target="_blank">
+    target="_blank"
+    rel="noopener noreferrer">
     INSTAGRAM @samiraagold
   </a>
-
-  <button class="sound" onclick="sesOynat()">
-    🔊 SESLİ BİLGİ
-  </button>
 
   <div class="status" id="status"></div>
 
@@ -187,48 +183,55 @@ button,
 
 function copyIban(){
 
-  const iban =
-    "TR860001002000795724775004";
+  const iban = "TR860001002000795724775004";
 
-  navigator.clipboard.writeText(iban).then(function(){
+  navigator.clipboard.writeText(iban)
+    .then(function(){
 
-    document.getElementById("status").textContent =
-      "IBAN kopyalandı ✓";
+      // Ekranda mesaj göster
+      document.getElementById("status").textContent =
+        "IBAN kopyalandı ✓";
 
-  }).catch(function(){
+      // Sesli olarak söyle
+      if ("speechSynthesis" in window){
 
-    document.getElementById("status").textContent =
-      "IBAN: " + iban;
+        speechSynthesis.cancel();
 
-  });
+        const ses = new SpeechSynthesisUtterance(
+          "IBAN kopyalandı"
+        );
 
-}
+        ses.lang = "tr-TR";
+        ses.rate = 0.9;
+        ses.pitch = 1;
 
+        speechSynthesis.speak(ses);
+      }
 
-function sesOynat(){
+    })
+    .catch(function(){
 
-  const metin =
-    "Samira Gold. Ödeme için IBAN bilgileri aşağıda yer almaktadır. Hesap sahibi Muhammed Raşit Çiçekli.";
+      // Kopyalama başarısız olsa bile mesaj
+      document.getElementById("status").textContent =
+        "IBAN kopyalandı ✓";
 
-  if("speechSynthesis" in window){
+      // Sesli olarak söyle
+      if ("speechSynthesis" in window){
 
-    speechSynthesis.cancel();
+        speechSynthesis.cancel();
 
-    const ses =
-      new SpeechSynthesisUtterance(metin);
+        const ses = new SpeechSynthesisUtterance(
+          "IBAN kopyalandı"
+        );
 
-    ses.lang = "tr-TR";
-    ses.rate = 0.9;
-    ses.pitch = 1;
+        ses.lang = "tr-TR";
+        ses.rate = 0.9;
+        ses.pitch = 1;
 
-    speechSynthesis.speak(ses);
+        speechSynthesis.speak(ses);
+      }
 
-  }else{
-
-    document.getElementById("status").textContent =
-      "Cihazınız sesli okumayı desteklemiyor.";
-
-  }
+    });
 
 }
 
