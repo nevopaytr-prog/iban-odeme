@@ -101,26 +101,6 @@ h1 {
     color: #111111;
 }
 
-.qr {
-    text-align: center;
-    margin: 15px 0 20px;
-}
-
-.qr img {
-    width: 180px;
-    height: 180px;
-    padding: 10px;
-    background: #ffffff;
-    border: 1px solid #dddddd;
-    border-radius: 12px;
-}
-
-.qr-yazi {
-    margin-top: 10px;
-    color: #777777;
-    font-size: 13px;
-}
-
 button {
     width: 100%;
     margin-top: 10px;
@@ -191,7 +171,6 @@ button:hover {
             Hüsamettin Çavdar
         </div>
 
-
         <div class="baslik">
             BANKA
         </div>
@@ -200,7 +179,6 @@ button:hover {
             Ziraat Bankası
         </div>
 
-
         <div class="baslik">
             IBAN
         </div>
@@ -208,23 +186,6 @@ button:hover {
         <div class="deger iban">
             TR07 0001 0011 5091 6792 5050 01
         </div>
-
-
-        <!-- ZİRAAT QR -->
-
-        <div class="qr">
-
-            <img
-                src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=TR070001001150916792505001"
-                alt="Ziraat Bankası IBAN QR"
-            >
-
-            <div class="qr-yazi">
-                📱 Ziraat IBAN için QR kodu okutun
-            </div>
-
-        </div>
-
 
         <button onclick="kopyala('TR070001001150916792505001','mesajZiraat')">
             ZİRAAT IBAN'I KOPYALA
@@ -235,7 +196,6 @@ button:hover {
         </div>
 
     </div>
-
 
 
     <!-- VAKIFBANK -->
@@ -250,7 +210,6 @@ button:hover {
             Hüsamettin Çavdar
         </div>
 
-
         <div class="baslik">
             BANKA
         </div>
@@ -259,7 +218,6 @@ button:hover {
             VakıfBank
         </div>
 
-
         <div class="baslik">
             IBAN
         </div>
@@ -267,23 +225,6 @@ button:hover {
         <div class="deger iban">
             TR98 0001 5001 5800 7330 9980 24
         </div>
-
-
-        <!-- VAKIFBANK QR -->
-
-        <div class="qr">
-
-            <img
-                src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=TR980001500158007330998024"
-                alt="VakıfBank IBAN QR"
-            >
-
-            <div class="qr-yazi">
-                📱 VakıfBank IBAN için QR kodu okutun
-            </div>
-
-        </div>
-
 
         <button onclick="kopyala('TR980001500158007330998024','mesajVakif')">
             VAKIFBANK IBAN'I KOPYALA
@@ -314,9 +255,7 @@ function kopyala(iban, mesajId) {
         mesaj.style.display = "block";
 
         setTimeout(function() {
-
             mesaj.style.display = "none";
-
         }, 2500);
 
     }).catch(function() {
