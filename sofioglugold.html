@@ -122,6 +122,19 @@ button:hover {
     background: #c29f2f;
 }
 
+
+/* SADECE ZİRAAT BUTONU */
+
+.ziraat-btn {
+    background: #d32f2f;
+    color: #ffffff;
+}
+
+.ziraat-btn:hover {
+    background: #b71c1c;
+}
+
+
 .mesaj {
     display: none;
     margin-top: 15px;
@@ -187,7 +200,9 @@ button:hover {
             TR07 0001 0011 5091 6792 5050 01
         </div>
 
-        <button onclick="kopyala('TR070001001150916792505001','mesajZiraat')">
+        <button
+            class="ziraat-btn"
+            onclick="kopyala('TR070001001150916792505001','mesajZiraat')">
             ZİRAAT IBAN'I KOPYALA
         </button>
 
@@ -226,7 +241,8 @@ button:hover {
             TR98 0001 5001 5800 7330 9980 24
         </div>
 
-        <button onclick="kopyala('TR980001500158007330998024','mesajVakif')">
+        <button
+            onclick="kopyala('TR980001500158007330998024','mesajVakif')">
             VAKIFBANK IBAN'I KOPYALA
         </button>
 
