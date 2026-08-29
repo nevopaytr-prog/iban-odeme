@@ -1,0 +1,297 @@
+```html
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HARİKLAR GOLD - Ödeme</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #111111;
+}
+
+.kart {
+    width: 100%;
+    max-width: 430px;
+    background: #ffffff;
+    border: 2px solid #d4af37;
+    border-radius: 28px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    border: 2px solid #d4af37;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #b08d20;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+h1 {
+    margin: 0;
+    font-size: 29px;
+    color: #b08d20;
+    letter-spacing: 1px;
+}
+
+.alt {
+    margin-top: 8px;
+    color: #777777;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.cizgi {
+    width: 70px;
+    height: 2px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+.bilgi {
+    background: #fafafa;
+    border: 1px solid #dddddd;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.baslik {
+    color: #777777;
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.deger {
+    color: #111111;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.iban {
+    font-size: 15px;
+    line-height: 1.7;
+    word-break: break-all;
+    color: #111111;
+}
+
+button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 16px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* KUVEYT TÜRK - YEŞİL */
+
+.kuveyt-btn {
+    background: #2e7d32;
+    color: #ffffff;
+    border: 2px solid #2e7d32;
+}
+
+.kuveyt-btn:hover {
+    background: #256628;
+}
+
+/* ZİRAAT BANKASI - KIRMIZI */
+
+.ziraat-btn {
+    background: #c62828;
+    color: #ffffff;
+    border: 2px solid #c62828;
+}
+
+.ziraat-btn:hover {
+    background: #a91f1f;
+}
+
+.mesaj {
+    display: none;
+    margin-top: 15px;
+    color: #b08d20;
+    font-weight: bold;
+    text-align: center;
+}
+
+.altbilgi {
+    margin-top: 22px;
+    color: #888888;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="kart">
+
+    <div class="logo">
+        HG
+    </div>
+
+    <h1>
+        HARİKLAR GOLD
+    </h1>
+
+    <div class="alt">
+        GÜVENLİ ÖDEME
+    </div>
+
+    <div class="cizgi"></div>
+
+
+    <!-- KUVEYT TÜRK -->
+
+    <div class="bilgi">
+
+        <div class="baslik">
+            HESAP SAHİBİ
+        </div>
+
+        <div class="deger">
+            SEVTAŞ KUYUMCULUK
+        </div>
+
+        <div class="baslik">
+            BANKA
+        </div>
+
+        <div class="deger">
+            Kuveyt Türk Katılım Bankası
+        </div>
+
+        <div class="baslik">
+            IBAN
+        </div>
+
+        <div class="deger iban">
+            TR78 00205 0000 9084 4478 0000 01
+        </div>
+
+        <button
+            class="kuveyt-btn"
+            onclick="kopyala('TR780020500009084447800001','mesajKuveyt')">
+
+            KUVEYT TÜRK IBAN'I KOPYALA
+
+        </button>
+
+        <div class="mesaj" id="mesajKuveyt">
+            ✓ Kuveyt Türk IBAN kopyalandı
+        </div>
+
+    </div>
+
+
+    <!-- ZİRAAT BANKASI -->
+
+    <div class="bilgi">
+
+        <div class="baslik">
+            HESAP SAHİBİ
+        </div>
+
+        <div class="deger">
+            SEVTAŞ KUYUMCULUK
+        </div>
+
+        <div class="baslik">
+            BANKA
+        </div>
+
+        <div class="deger">
+            Ziraat Bankası
+        </div>
+
+        <div class="baslik">
+            IBAN
+        </div>
+
+        <div class="deger iban">
+            TR55 00010 02000 98035 29350 01
+        </div>
+
+        <button
+            class="ziraat-btn"
+            onclick="kopyala('TR550001002000980352935001','mesajZiraat')">
+
+            ZİRAAT BANKASI IBAN'I KOPYALA
+
+        </button>
+
+        <div class="mesaj" id="mesajZiraat">
+            ✓ Ziraat Bankası IBAN kopyalandı
+        </div>
+
+    </div>
+
+
+    <div class="altbilgi">
+        Ödeme yapmak için uygun banka hesabını kullanabilirsiniz.
+    </div>
+
+</div>
+
+
+<script>
+
+function kopyala(iban, mesajId) {
+
+    navigator.clipboard.writeText(iban).then(function() {
+
+        const mesaj = document.getElementById(mesajId);
+
+        mesaj.style.display = "block";
+
+        setTimeout(function() {
+            mesaj.style.display = "none";
+        }, 2500);
+
+    }).catch(function() {
+
+        alert("IBAN kopyalanamadı. Lütfen tekrar deneyin.");
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
+```
