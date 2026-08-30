@@ -8,6 +8,7 @@
 <title>OZAN GÜMÜŞ - Ödeme</title>
 
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -101,6 +102,8 @@ h1 {
     color: #111111;
 }
 
+/* GARANTİ BBVA - YEŞİL */
+
 button {
     width: 100%;
     margin-top: 10px;
@@ -109,13 +112,13 @@ button {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    background: #c62828;
+    background: #2e7d32;
     color: #ffffff;
-    border: 2px solid #c62828;
+    border: 2px solid #2e7d32;
 }
 
 button:hover {
-    background: #a91f1f;
+    background: #256628;
 }
 
 .mesaj {
@@ -133,6 +136,7 @@ button:hover {
     line-height: 1.5;
     text-align: center;
 }
+
 </style>
 
 </head>
@@ -181,11 +185,8 @@ button:hover {
             TR94 00062 0015 2300 0006 2976 75
         </div>
 
-        <button
-            onclick="kopyala('TR9400062001523000006297675')">
-
+        <button onclick="kopyala('TR9400062001523000006297675')">
             GARANTİ BBVA IBAN'I KOPYALA
-
         </button>
 
         <div class="mesaj" id="mesaj">
