@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>METİN GOLD - Ödeme</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #111111;
+}
+
+.kart {
+    width: 100%;
+    max-width: 430px;
+    background: #ffffff;
+    border: 2px solid #d4af37;
+    border-radius: 28px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    border: 2px solid #d4af37;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #b08d20;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+h1 {
+    margin: 0;
+    font-size: 29px;
+    color: #b08d20;
+    letter-spacing: 1px;
+}
+
+.alt {
+    margin-top: 8px;
+    color: #777777;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.cizgi {
+    width: 70px;
+    height: 2px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+.bilgi {
+    background: #fafafa;
+    border: 1px solid #dddddd;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.baslik {
+    color: #777777;
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.deger {
+    color: #111111;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.iban {
+    font-size: 15px;
+    line-height: 1.7;
+    word-break: break-all;
+    color: #111111;
+}
+
+/* HALKBANK - MAVİ */
+
+button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 16px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+
+    background: #1565c0;
+    color: #ffffff;
+    border: 2px solid #1565c0;
+}
+
+button:hover {
+    background: #0d47a1;
+    border-color: #0d47a1;
+}
+
+.mesaj {
+    display: none;
+    margin-top: 15px;
+    color: #b08d20;
+    font-weight: bold;
+    text-align: center;
+}
+
+.altbilgi {
+    margin-top: 22px;
+    color: #888888;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="kart">
+
+    <div class="logo">
+        MG
+    </div>
+
+    <h1>
+        METİN GOLD
+    </h1>
+
+    <div class="alt">
+        GÜVENLİ ÖDEME
+    </div>
+
+    <div class="cizgi"></div>
+
+
+    <div class="bilgi">
+
+        <div class="baslik">
+            HESAP SAHİBİ
+        </div>
+
+        <div class="deger">
+            METİN YAVUZ KUYUMCULUK
+        </div>
+
+
+        <div class="baslik">
+            BANKA
+        </div>
+
+        <div class="deger">
+            Halkbank
+        </div>
+
+
+        <div class="baslik">
+            IBAN
+        </div>
+
+        <div class="deger iban">
+            TR48 0001 2001 5780 0010 1002 00
+        </div>
+
+
+        <button onclick="kopyala('TR480001200157800010100200')">
+
+            HALKBANK IBAN'I KOPYALA
+
+        </button>
+
+
+        <div class="mesaj" id="mesaj">
+
+            ✓ Halkbank IBAN kopyalandı
+
+        </div>
+
+    </div>
+
+
+    <div class="altbilgi">
+
+        Ödeme yapmak için uygun banka hesabını kullanabilirsiniz.
+
+    </div>
+
+</div>
+
+
+<script>
+
+function kopyala(iban) {
+
+    navigator.clipboard.writeText(iban).then(function() {
+
+        const mesaj = document.getElementById("mesaj");
+
+        mesaj.style.display = "block";
+
+        setTimeout(function() {
+
+            mesaj.style.display = "none";
+
+        }, 2500);
+
+    }).catch(function() {
+
+        alert("IBAN kopyalanamadı. Lütfen tekrar deneyin.");
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
