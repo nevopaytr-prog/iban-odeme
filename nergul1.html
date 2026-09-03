@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nergül Kuyumculuk - Ödeme</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #111111;
+}
+
+.kart {
+    width: 100%;
+    max-width: 430px;
+    background: #ffffff;
+    border: 2px solid #d4af37;
+    border-radius: 28px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    border: 2px solid #d4af37;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #b08d20;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+h1 {
+    margin: 0;
+    font-size: 30px;
+    color: #b08d20;
+    letter-spacing: 1px;
+}
+
+.alt {
+    margin-top: 8px;
+    color: #777777;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.cizgi {
+    width: 70px;
+    height: 2px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+.bilgi {
+    background: #fafafa;
+    border: 1px solid #dddddd;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.baslik {
+    color: #777777;
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.deger {
+    color: #111111;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.iban {
+    font-size: 15px;
+    line-height: 1.7;
+    word-break: break-all;
+    color: #111111;
+}
+
+button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 16px;
+
+    border: none;
+    border-radius: 14px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.yapi-kredi-btn {
+    background: #00529b;
+    color: #ffffff;
+}
+
+.yapi-kredi-btn:hover {
+    background: #003f78;
+}
+
+.mesaj {
+    display: none;
+    margin-top: 15px;
+    color: #b08d20;
+    font-weight: bold;
+}
+
+.altbilgi {
+    margin-top: 22px;
+    color: #888888;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="kart">
+
+    <div class="logo">
+        NK
+    </div>
+
+    <h1>
+        Nergül Kuyumculuk
+    </h1>
+
+    <div class="alt">
+        GÜVENLİ ÖDEME
+    </div>
+
+    <div class="cizgi"></div>
+
+    <!-- YAPI KREDİ BANKASI -->
+
+    <div class="bilgi">
+
+        <div class="baslik">
+            HESAP SAHİBİ
+        </div>
+
+        <div class="deger">
+            ALATİN DOĞANAY
+        </div>
+
+        <div class="baslik">
+            BANKA
+        </div>
+
+        <div class="deger">
+            Yapı Kredi Bankası
+        </div>
+
+        <div class="baslik">
+            IBAN
+        </div>
+
+        <div class="deger iban">
+            TR67 0006 7010 0000 0062 9901 10
+        </div>
+
+        <button
+            class="yapi-kredi-btn"
+            onclick="kopyala(
+                'TR670006701000000062990110',
+                'mesajYapiKredi'
+            )"
+        >
+            YAPI KREDİ IBAN'I KOPYALA
+        </button>
+
+        <div class="mesaj" id="mesajYapiKredi">
+            ✓ Yapı Kredi IBAN kopyalandı
+        </div>
+
+    </div>
+
+    <div class="altbilgi">
+        Ödeme yapmak için uygun banka hesabını seçebilirsiniz.
+    </div>
+
+</div>
+
+<script>
+
+function kopyala(iban, mesajId) {
+
+    navigator.clipboard.writeText(iban).then(function() {
+
+        const mesaj = document.getElementById(mesajId);
+
+        mesaj.style.display = "block";
+
+        setTimeout(function() {
+            mesaj.style.display = "none";
+        }, 2500);
+
+    }).catch(function() {
+
+        alert("IBAN kopyalanamadı. Lütfen tekrar deneyin.");
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
