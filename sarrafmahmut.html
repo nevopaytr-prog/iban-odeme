@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Maayer Kuyumculuk - Ödeme</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Arial,sans-serif;background:#fff;display:flex;justify-content:center;align-items:center;padding:20px;color:#111}
+.kart{width:100%;max-width:430px;background:#fff;border:2px solid #d4af37;border-radius:28px;padding:34px 24px;text-align:center;box-shadow:0 10px 35px rgba(0,0,0,.12)}
+.logo{width:76px;height:76px;margin:0 auto 14px;border-radius:50%;background:linear-gradient(145deg,#f5dc78,#b8860b);display:flex;align-items:center;justify-content:center;color:#fff;font-size:34px;font-weight:800}
+h1{font-size:25px;margin:0 0 7px}.alt{color:#777;margin:0 0 24px}
+.hesap{background:#fffdf7;border:1px solid #eadca8;border-radius:18px;padding:18px 15px;margin-top:16px}
+.banka{font-size:19px;font-weight:800;margin-bottom:12px}.etiket{font-size:12px;color:#777;margin-top:9px}.isim{font-size:17px;font-weight:700;margin-top:4px}
+.iban{font-family:Arial,sans-serif;font-size:16px;font-weight:700;line-height:1.6;overflow-wrap:anywhere;margin:5px 0 14px}
+button{width:100%;border:0;border-radius:12px;padding:14px 8px;color:#fff;font-size:15px;font-weight:800;cursor:pointer}
+button:active{transform:scale(.98)}.finans{background:#008b70}.akbank{background:#e30613}
+#bildirim{position:fixed;left:50%;bottom:25px;transform:translateX(-50%);background:#222;color:#fff;padding:12px 20px;border-radius:10px;opacity:0;pointer-events:none;transition:.25s;white-space:nowrap}
+#bildirim.goster{opacity:1}
+</style>
+</head>
+<body>
+<main class="kart">
+  <div class="logo">M</div>
+  <h1>MAAYER KUYUMCULUK</h1>
+  <p class="alt">IBAN Ödeme Bilgileri</p>
+
+  <section class="hesap">
+    <div class="banka">Türkiye Finans</div>
+    <div class="etiket">HESAP SAHİBİ</div>
+    <div class="isim">MAAYER KUYUMCULUK</div>
+    <div class="etiket">IBAN</div>
+    <div class="iban">TR53 0020 6002 7405 3595 0800 01</div>
+    <button class="finans" onclick="kopyala('TR530020600274053595080001')">Türkiye Finans IBAN Kopyala</button>
+  </section>
+
+  <section class="hesap">
+    <div class="banka">Akbank</div>
+    <div class="etiket">HESAP SAHİBİ</div>
+    <div class="isim">MUHAMMED AYER</div>
+    <div class="etiket">IBAN</div>
+    <div class="iban">TR59 0004 6013 7288 8000 1278 73</div>
+    <button class="akbank" onclick="kopyala('TR590004601372888000127873')">Akbank IBAN Kopyala</button>
+  </section>
+</main>
+<div id="bildirim">IBAN kopyalandı</div>
+<script>
+function kopyala(iban){
+  const tamamlandi=()=>{
+    const b=document.getElementById("bildirim");
+    b.classList.add("goster");
+    setTimeout(()=>b.classList.remove("goster"),1800);
+  };
+  if(navigator.clipboard&&window.isSecureContext){
+    navigator.clipboard.writeText(iban).then(tamamlandi).catch(()=>eskiKopyala(iban,tamamlandi));
+  }else{eskiKopyala(iban,tamamlandi)}
+}
+function eskiKopyala(metin,tamamlandi){
+  const a=document.createElement("textarea");
+  a.value=metin;a.style.position="fixed";a.style.opacity="0";
+  document.body.appendChild(a);a.select();document.execCommand("copy");a.remove();tamamlandi();
+}
+</script>
+</body>
+</html>
