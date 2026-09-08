@@ -3,16 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Metropol Gold - Ödeme</title>
 
-  <!-- QR KOD KÜTÜPHANESİ -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
   <style>
-    *{
-      box-sizing:border-box
-    }
+    *{box-sizing:border-box}
 
     body{
       margin:0;
@@ -103,50 +97,23 @@
       padding:14px 10px;
       font-size:15px;
       font-weight:800;
-      cursor:pointer;
-      margin-top:8px
+      cursor:pointer
     }
 
     button:active{
       transform:scale(.98)
     }
 
-    /* VAKIFBANK */
-    .vakif{
-      background:#f6c500;
-      color:#111
-    }
-
-    /* AKBANK */
+    /* AKBANK KIRMIZI */
     .akbank{
       background:#e30613;
       color:#fff
     }
 
-    /* QR BUTONU */
-    .qrbuton{
-      background:#222;
-      color:#fff
-    }
-
-    /* QR ALANI */
-    .qralan{
-      display:none;
-      width:250px;
-      max-width:100%;
-      margin:16px auto 2px;
-      padding:14px;
-      background:#fff;
-      border:1px solid #ddd;
-      border-radius:15px
-    }
-
-    .qralan img,
-    .qralan canvas{
-      display:block;
-      margin:auto;
-      max-width:100%;
-      height:auto
+    /* VAKIFBANK SARI */
+    .vakif{
+      background:#f6c500;
+      color:#111
     }
 
     #bildirim{
@@ -183,58 +150,7 @@
     </p>
 
 
-    <!-- ====================== -->
-    <!-- VAKIFBANK -->
-    <!-- ====================== -->
-
-    <section class="hesap">
-
-      <div class="banka">
-        VakıfBank
-      </div>
-
-      <div class="etiket">
-        HESAP SAHİBİ
-      </div>
-
-      <div class="isim">
-        ABDUSSELAM ÇELİK
-      </div>
-
-      <div class="etiket">
-        IBAN
-      </div>
-
-      <div class="iban">
-        TR98 0001 5001 5800 7356 7599 63
-      </div>
-
-      <button
-        class="vakif"
-        onclick="kopyala('TR980001500158007356759963')">
-        VakıfBank IBAN Kopyala
-      </button>
-
-      <button
-        class="qrbuton"
-        onclick="qrGoster(
-          'qrVakif',
-          'TR980001500158007356759963'
-        )">
-        QR KODU GÖSTER
-      </button>
-
-      <div
-        id="qrVakif"
-        class="qralan">
-      </div>
-
-    </section>
-
-
-    <!-- ====================== -->
-    <!-- AKBANK -->
-    <!-- ====================== -->
+    <!-- AKBANK - ÜSTTE -->
 
     <section class="hesap">
 
@@ -264,19 +180,38 @@
         Akbank IBAN Kopyala
       </button>
 
-      <button
-        class="qrbuton"
-        onclick="qrGoster(
-          'qrAkbank',
-          'TR840004601360888000140051'
-        )">
-        QR KODU GÖSTER
-      </button>
+    </section>
 
-      <div
-        id="qrAkbank"
-        class="qralan">
+
+    <!-- VAKIFBANK - ALTTA -->
+
+    <section class="hesap">
+
+      <div class="banka">
+        VakıfBank
       </div>
+
+      <div class="etiket">
+        HESAP SAHİBİ
+      </div>
+
+      <div class="isim">
+        ABDUSSELAM ÇELİK
+      </div>
+
+      <div class="etiket">
+        IBAN
+      </div>
+
+      <div class="iban">
+        TR98 0001 5001 5800 7356 7599 63
+      </div>
+
+      <button
+        class="vakif"
+        onclick="kopyala('TR980001500158007356759963')">
+        VakıfBank IBAN Kopyala
+      </button>
 
     </section>
 
@@ -290,16 +225,11 @@
 
   <script>
 
-    /* =========================
-       IBAN KOPYALA
-    ========================= */
-
     function kopyala(iban){
 
       const tamamlandi = () => {
 
-        const b =
-          document.getElementById('bildirim');
+        const b = document.getElementById('bildirim');
 
         b.classList.add('goster');
 
@@ -307,43 +237,26 @@
           () => b.classList.remove('goster'),
           1800
         );
-
       };
 
-      if(
-        navigator.clipboard &&
-        window.isSecureContext
-      ){
+      if(navigator.clipboard && window.isSecureContext){
 
         navigator.clipboard
           .writeText(iban)
           .then(tamamlandi)
-          .catch(
-            () => eskiKopyala(
-              iban,
-              tamamlandi
-            )
-          );
+          .catch(() => eskiKopyala(iban,tamamlandi));
 
       }else{
 
-        eskiKopyala(
-          iban,
-          tamamlandi
-        );
+        eskiKopyala(iban,tamamlandi);
 
       }
-
     }
 
 
-    function eskiKopyala(
-      metin,
-      tamamlandi
-    ){
+    function eskiKopyala(metin,tamamlandi){
 
-      const a =
-        document.createElement('textarea');
+      const a = document.createElement('textarea');
 
       a.value = metin;
       a.style.position = 'fixed';
@@ -358,70 +271,6 @@
       a.remove();
 
       tamamlandi();
-
-    }
-
-
-    /* =========================
-       QR KOD GÖSTER
-    ========================= */
-
-    function qrGoster(id, iban){
-
-      const alan =
-        document.getElementById(id);
-
-
-      /* AÇIKSA KAPAT */
-
-      if(alan.style.display === 'block'){
-
-        alan.style.display = 'none';
-
-        return;
-
-      }
-
-
-      /* DİĞER QR KODU KAPAT */
-
-      document
-        .querySelectorAll('.qralan')
-        .forEach(function(qr){
-
-          qr.style.display = 'none';
-
-        });
-
-
-      /* QR KODU İLK DEFA OLUŞTUR */
-
-      if(alan.innerHTML.trim() === ''){
-
-        new QRCode(alan, {
-
-          text: iban,
-
-          width: 220,
-
-          height: 220,
-
-          colorDark: '#000000',
-
-          colorLight: '#ffffff',
-
-          correctLevel:
-            QRCode.CorrectLevel.H
-
-        });
-
-      }
-
-
-      /* QR KODU GÖSTER */
-
-      alan.style.display = 'block';
-
     }
 
   </script>
