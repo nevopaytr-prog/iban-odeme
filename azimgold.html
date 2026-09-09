@@ -2,48 +2,273 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Azim Gold - Ödeme</title>
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;min-height:100vh;font-family:Arial,sans-serif;background:#fff;display:flex;justify-content:center;align-items:center;padding:20px;color:#111}
-.kart{width:100%;max-width:430px;background:#fff;border:2px solid #d4af37;border-radius:28px;padding:35px 25px;text-align:center;box-shadow:0 10px 35px rgba(0,0,0,.12)}
-.logo{width:76px;height:76px;margin:0 auto 14px;border-radius:50%;background:linear-gradient(145deg,#f5dc78,#b8860b);display:flex;align-items:center;justify-content:center;color:#fff;font-size:34px;font-weight:800}
-h1{font-size:26px;margin:0 0 7px}.alt{color:#777;margin:0 0 24px}
-.hesap{background:#fffdf7;border:1px solid #eadca8;border-radius:18px;padding:20px 15px}
-.banka{font-size:20px;font-weight:800;margin-bottom:14px}.etiket{font-size:12px;color:#777;margin-top:10px}.isim{font-size:18px;font-weight:700;margin-top:4px}
-.iban{font-family:Arial,sans-serif;font-size:17px;font-weight:700;line-height:1.6;overflow-wrap:anywhere;margin:5px 0 16px}
-button{width:100%;border:0;border-radius:12px;padding:15px 10px;background:#d71920;color:#fff;font-size:16px;font-weight:800;cursor:pointer}
-button:active{transform:scale(.98)}
-#bildirim{position:fixed;left:50%;bottom:25px;transform:translateX(-50%);background:#222;color:#fff;padding:12px 20px;border-radius:10px;opacity:0;pointer-events:none;transition:.25s;white-space:nowrap}
-#bildirim.goster{opacity:1}
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Arial, sans-serif;
+  background:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  color:#111;
+}
+
+.kart{
+  width:100%;
+  max-width:430px;
+  background:#fff;
+  border:2px solid #d4af37;
+  border-radius:28px;
+  padding:35px 25px;
+  text-align:center;
+  box-shadow:0 10px 35px rgba(0,0,0,.10);
+}
+
+/* HG YAN YANA YUVARLAK LOGO */
+.hg-logo{
+  width:78px;
+  height:78px;
+  border:3px solid #d4af37;
+  border-radius:50%;
+  margin:0 auto 14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+  font-weight:900;
+  color:#111;
+}
+
+.hg-logo span{
+  font-size:27px;
+  line-height:1;
+}
+
+h1{
+  margin:0;
+  font-size:28px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.alt-baslik{
+  margin-top:7px;
+  margin-bottom:28px;
+  color:#777;
+  font-size:14px;
+}
+
+.banka{
+  font-size:14px;
+  color:#777;
+  margin-bottom:5px;
+}
+
+/* ZİRAAT BANKASI KIRMIZI */
+.banka-adi{
+  font-size:20px;
+  font-weight:800;
+  margin-bottom:22px;
+  color:#e30613;
+}
+
+.bilgi{
+  text-align:left;
+  background:#fafafa;
+  border:1px solid #eee;
+  border-radius:18px;
+  padding:18px;
+  margin-bottom:16px;
+}
+
+.etiket{
+  font-size:12px;
+  color:#777;
+  margin-bottom:6px;
+}
+
+.deger{
+  font-size:17px;
+  font-weight:700;
+}
+
+.iban{
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.5px;
+  line-height:1.6;
+  word-break:break-word;
+}
+
+/* IBAN KOPYALA KIRMIZI */
+button{
+  width:100%;
+  border:none;
+  background:#e30613;
+  color:#fff;
+  font-size:16px;
+  font-weight:800;
+  padding:15px;
+  border-radius:14px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+button:hover{
+  background:#c9000c;
+  transform:translateY(-1px);
+}
+
+button:active{
+  transform:scale(.98);
+}
+
+#bildirim{
+  position:fixed;
+  left:50%;
+  bottom:30px;
+  transform:translateX(-50%) translateY(20px);
+  background:#111;
+  color:#fff;
+  padding:12px 20px;
+  border-radius:30px;
+  font-size:14px;
+  opacity:0;
+  visibility:hidden;
+  transition:.3s;
+  white-space:nowrap;
+}
+
+#bildirim.goster{
+  opacity:1;
+  visibility:visible;
+  transform:translateX(-50%) translateY(0);
+}
+
+@media(max-width:480px){
+
+  .kart{
+    padding:30px 20px;
+  }
+
+  h1{
+    font-size:25px;
+  }
+
+  .hg-logo{
+    width:72px;
+    height:72px;
+  }
+
+  .hg-logo span{
+    font-size:25px;
+  }
+
+  .iban{
+    font-size:15px;
+  }
+}
 </style>
 </head>
+
 <body>
-<main class="kart">
-  <div class="logo">A</div>
+
+<div class="kart">
+
+  <!-- H VE G YAN YANA -->
+  <div class="hg-logo">
+    <span>H</span>
+    <span>G</span>
+  </div>
+
   <h1>AZİM GOLD</h1>
-  <p class="alt">IBAN Ödeme Bilgileri</p>
-  <section class="hesap">
-    <div class="banka">Ziraat Bankası</div>
-    <div class="etiket">HESAP SAHİBİ</div>
-    <div class="isim">RAMAZAN TURUN</div>
-    <div class="etiket">IBAN</div>
-    <div class="iban">TR39 0001 0020 0069 4788 5850 11</div>
-    <button onclick="kopyala('TR390001002000694788585011')">Ziraat Bankası IBAN Kopyala</button>
-  </section>
-</main>
-<div id="bildirim">IBAN kopyalandı</div>
+
+  <div class="alt-baslik">
+    Ödeme Bilgileri
+  </div>
+
+  <div class="banka">
+    Banka
+  </div>
+
+  <div class="banka-adi">
+    Ziraat Bankası
+  </div>
+
+  <div class="bilgi">
+    <div class="etiket">
+      HESAP SAHİBİ
+    </div>
+
+    <div class="deger">
+      RAMAZAN TURUN
+    </div>
+  </div>
+
+  <div class="bilgi">
+    <div class="etiket">
+      IBAN
+    </div>
+
+    <div class="iban">
+      TR39 0001 0020 0069 4788 5850 11
+    </div>
+  </div>
+
+  <button onclick="ibanKopyala()">
+    IBAN KOPYALA
+  </button>
+
+</div>
+
+<div id="bildirim">
+  IBAN kopyalandı
+</div>
+
 <script>
-function kopyala(iban){
- const tamamlandi=()=>{const b=document.getElementById("bildirim");b.classList.add("goster");setTimeout(()=>b.classList.remove("goster"),1800)};
- if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(iban).then(tamamlandi).catch(()=>eskiKopyala(iban,tamamlandi))}
- else{eskiKopyala(iban,tamamlandi)}
-}
-function eskiKopyala(metin,tamamlandi){
- const a=document.createElement("textarea");a.value=metin;a.style.position="fixed";a.style.opacity="0";
- document.body.appendChild(a);a.select();document.execCommand("copy");a.remove();tamamlandi();
+function ibanKopyala(){
+
+  const iban = "TR390001002000694788585011";
+
+  navigator.clipboard.writeText(iban).then(function(){
+
+    const bildirim = document.getElementById("bildirim");
+    bildirim.classList.add("goster");
+
+    setTimeout(function(){
+      bildirim.classList.remove("goster");
+    },2000);
+
+  }).catch(function(){
+
+    const alan = document.createElement("textarea");
+    alan.value = iban;
+
+    document.body.appendChild(alan);
+    alan.select();
+    document.execCommand("copy");
+    document.body.removeChild(alan);
+
+    const bildirim = document.getElementById("bildirim");
+    bildirim.classList.add("goster");
+
+    setTimeout(function(){
+      bildirim.classList.remove("goster");
+    },2000);
+
+  });
 }
 </script>
+
 </body>
 </html>
