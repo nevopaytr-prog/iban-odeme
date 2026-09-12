@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -11,142 +12,215 @@
   box-sizing:border-box;
 }
 
+:root{
+  --gold:#d4af37;
+  --gold-dark:#a98519;
+  --text:#151515;
+  --muted:#7b7b7b;
+  --border:#ece8dc;
+  --soft:#faf9f5;
+  --red:#e30613;
+}
+
 body{
   margin:0;
   min-height:100vh;
-  font-family:Arial, sans-serif;
-  background:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  background:
+    radial-gradient(circle at top,#fffdf5 0%,#f7f5ef 45%,#efede7 100%);
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:20px;
-  color:#111;
+  padding:22px;
+  color:var(--text);
 }
 
 .kart{
   width:100%;
-  max-width:430px;
-  background:#fff;
-  border:2px solid #d4af37;
-  border-radius:28px;
-  padding:35px 25px;
+  max-width:440px;
+  background:rgba(255,255,255,.96);
+  border:1px solid rgba(212,175,55,.35);
+  border-radius:30px;
+  padding:30px 24px 26px;
   text-align:center;
-  box-shadow:0 10px 35px rgba(0,0,0,.10);
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.10),
+    inset 0 1px 0 rgba(255,255,255,.9);
+  overflow:hidden;
+  position:relative;
 }
 
-/* AG YAN YANA YUVARLAK LOGO */
+.kart::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:5px;
+  background:linear-gradient(
+    90deg,
+    #8e6d0d,
+    #d4af37,
+    #f2d978,
+    #d4af37,
+    #8e6d0d
+  );
+}
+
+/* LOGO */
 .ag-logo{
-  width:78px;
-  height:78px;
-  border:3px solid #d4af37;
+  width:92px;
+  height:92px;
+  margin:4px auto 16px;
   border-radius:50%;
-  margin:0 auto 14px;
+  border:2px solid var(--gold);
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:2px;
-  font-weight:900;
-  color:#111;
+  background:
+    linear-gradient(145deg,#fff,#f6f1df);
+  box-shadow:
+    0 8px 24px rgba(212,175,55,.18),
+    inset 0 0 0 5px rgba(212,175,55,.08);
+  position:relative;
+}
+
+.ag-logo::after{
+  content:"";
+  position:absolute;
+  inset:7px;
+  border-radius:50%;
+  border:1px solid rgba(212,175,55,.38);
 }
 
 .ag-logo span{
-  font-size:27px;
-  line-height:1;
+  position:relative;
+  z-index:2;
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:-2px;
 }
 
 h1{
   margin:0;
-  font-size:28px;
-  font-weight:800;
-  letter-spacing:1px;
+  font-size:30px;
+  font-weight:900;
+  letter-spacing:1.4px;
 }
 
 .alt-baslik{
   margin-top:7px;
-  margin-bottom:28px;
-  color:#777;
-  font-size:14px;
+  margin-bottom:26px;
+  color:var(--muted);
+  font-size:13px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+
+.banka-kutu{
+  background:linear-gradient(180deg,#fff,#fbfaf6);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px;
+  margin-bottom:16px;
 }
 
 .banka{
-  font-size:14px;
-  color:#777;
+  font-size:11px;
+  color:#999;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
   margin-bottom:5px;
 }
 
-/* ZİRAAT BANKASI KIRMIZI */
 .banka-adi{
-  font-size:20px;
-  font-weight:800;
-  margin-bottom:22px;
-  color:#e30613;
+  font-size:22px;
+  font-weight:900;
+  color:var(--red);
 }
 
 .bilgi{
   text-align:left;
-  background:#fafafa;
-  border:1px solid #eee;
+  background:linear-gradient(180deg,#fff,#fbfbfa);
+  border:1px solid var(--border);
   border-radius:18px;
   padding:18px;
-  margin-bottom:16px;
+  margin-bottom:14px;
+  box-shadow:0 5px 16px rgba(0,0,0,.035);
 }
 
 .etiket{
-  font-size:12px;
-  color:#777;
-  margin-bottom:6px;
+  font-size:11px;
+  color:#929292;
+  margin-bottom:8px;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
 }
 
 .deger{
-  font-size:17px;
-  font-weight:700;
+  font-size:18px;
+  font-weight:800;
 }
 
 .iban{
   font-size:17px;
-  font-weight:700;
-  letter-spacing:.5px;
-  line-height:1.6;
+  font-weight:800;
+  letter-spacing:.45px;
+  line-height:1.65;
   word-break:break-word;
+  color:#1a1a1a;
 }
 
-/* IBAN KOPYALA BUTONU KIRMIZI */
+/* BUTON */
 button{
   width:100%;
   border:none;
-  background:#e30613;
+  background:
+    linear-gradient(135deg,#111,#272727);
   color:#fff;
-  font-size:16px;
-  font-weight:800;
-  padding:15px;
-  border-radius:14px;
+  font-size:15px;
+  font-weight:900;
+  padding:16px;
+  border-radius:15px;
   cursor:pointer;
-  transition:.2s;
+  transition:.2s ease;
+  box-shadow:0 10px 22px rgba(0,0,0,.14);
+  letter-spacing:.4px;
 }
 
 button:hover{
-  background:#c9000c;
   transform:translateY(-1px);
+  box-shadow:0 13px 25px rgba(0,0,0,.18);
 }
 
 button:active{
-  transform:scale(.98);
+  transform:scale(.985);
 }
 
+.alt-not{
+  margin-top:17px;
+  font-size:11px;
+  color:#9a8544;
+  letter-spacing:1.2px;
+}
+
+/* BİLDİRİM */
 #bildirim{
   position:fixed;
   left:50%;
-  bottom:30px;
+  bottom:28px;
   transform:translateX(-50%) translateY(20px);
   background:#111;
   color:#fff;
-  padding:12px 20px;
+  padding:13px 20px;
   border-radius:30px;
   font-size:14px;
+  font-weight:700;
   opacity:0;
   visibility:hidden;
   transition:.3s;
   white-space:nowrap;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
 
 #bildirim.goster{
@@ -158,20 +232,25 @@ button:active{
 @media(max-width:480px){
 
   .kart{
-    padding:30px 20px;
-  }
-
-  h1{
-    font-size:25px;
+    padding:28px 18px 24px;
+    border-radius:25px;
   }
 
   .ag-logo{
-    width:72px;
-    height:72px;
+    width:84px;
+    height:84px;
   }
 
   .ag-logo span{
-    font-size:25px;
+    font-size:26px;
+  }
+
+  h1{
+    font-size:27px;
+  }
+
+  .banka-adi{
+    font-size:20px;
   }
 
   .iban{
@@ -185,7 +264,6 @@ button:active{
 
 <div class="kart">
 
-  <!-- A VE G YAN YANA TEK YUVARLAK İÇİNDE -->
   <div class="ag-logo">
     <span>A</span>
     <span>G</span>
@@ -194,28 +272,35 @@ button:active{
   <h1>AZİM GOLD</h1>
 
   <div class="alt-baslik">
-    Ödeme Bilgileri
+    Güvenli Ödeme Bilgileri
   </div>
 
-  <div class="banka">
-    Banka
-  </div>
+  <div class="banka-kutu">
 
-  <div class="banka-adi">
-    Ziraat Bankası
+    <div class="banka">
+      Banka
+    </div>
+
+    <div class="banka-adi">
+      Ziraat Bankası
+    </div>
+
   </div>
 
   <div class="bilgi">
+
     <div class="etiket">
-      HESAP SAHİBİ
+      Hesap Sahibi
     </div>
 
     <div class="deger">
       RAMAZAN TURUN
     </div>
+
   </div>
 
   <div class="bilgi">
+
     <div class="etiket">
       IBAN
     </div>
@@ -223,16 +308,21 @@ button:active{
     <div class="iban">
       TR39 0001 0020 0069 4788 5850 11
     </div>
+
   </div>
 
   <button onclick="ibanKopyala()">
-    IBAN KOPYALA
+    IBAN'I KOPYALA
   </button>
+
+  <div class="alt-not">
+    AZİM GOLD • GÜVENLİ ÖDEME
+  </div>
 
 </div>
 
 <div id="bildirim">
-  IBAN kopyalandı
+  ✓ IBAN kopyalandı
 </div>
 
 <script>
@@ -242,12 +332,7 @@ function ibanKopyala(){
 
   navigator.clipboard.writeText(iban).then(function(){
 
-    const bildirim = document.getElementById("bildirim");
-    bildirim.classList.add("goster");
-
-    setTimeout(function(){
-      bildirim.classList.remove("goster");
-    },2000);
+    bildirimGoster();
 
   }).catch(function(){
 
@@ -259,16 +344,23 @@ function ibanKopyala(){
     document.execCommand("copy");
     document.body.removeChild(alan);
 
-    const bildirim = document.getElementById("bildirim");
-    bildirim.classList.add("goster");
-
-    setTimeout(function(){
-      bildirim.classList.remove("goster");
-    },2000);
+    bildirimGoster();
 
   });
+}
+
+function bildirimGoster(){
+
+  const bildirim = document.getElementById("bildirim");
+
+  bildirim.classList.add("goster");
+
+  setTimeout(function(){
+    bildirim.classList.remove("goster");
+  },2000);
 }
 </script>
 
 </body>
 </html>
+```
