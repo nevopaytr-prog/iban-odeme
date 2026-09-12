@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Emre Tekçi - IBAN Ödeme</title>
+<title>Anastasiya Erkek Kuaförü - IBAN Ödeme</title>
 
 <style>
 *{
@@ -18,77 +18,232 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-  background:#f4f5f7;
   padding:20px;
+  background:#eef0f2;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  color:#111;
 }
 
 .card{
-  width:min(92%,420px);
-  padding:28px;
+  width:min(94%,430px);
   background:#fff;
-  border-radius:22px;
-  box-shadow:0 8px 30px rgba(0,0,0,.10);
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 18px 55px rgba(0,0,0,.16);
+}
+
+/* ÜST BÖLÜM */
+.hero{
+  position:relative;
+  background:
+    radial-gradient(circle at top,#24313b 0%,#111920 50%,#070b0f 100%);
+  color:#fff;
   text-align:center;
+  padding:28px 22px 42px;
 }
 
-.bank{
-  font-size:17px;
-  font-weight:700;
-  color:#333;
-  margin-bottom:14px;
+.hero:after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-1px;
+  height:20px;
+  background:#fff;
+  clip-path:polygon(0 0,50% 100%,100% 0,100% 100%,0 100%);
 }
 
-.label{
-  font-size:13px;
-  color:#999;
-  margin-top:18px;
-  margin-bottom:6px;
+.icon-circle{
+  width:108px;
+  height:108px;
+  margin:0 auto 16px;
+  border:4px solid #c9a44f;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:48px;
+  background:rgba(255,255,255,.03);
+  box-shadow:0 0 0 6px rgba(201,164,79,.08);
 }
 
-.name{
-  font-size:25px;
-  font-weight:700;
-  color:#222;
+.small-text{
+  font-size:11px;
+  letter-spacing:2px;
+  color:#dfc581;
+  margin-bottom:8px;
 }
 
-.iban{
+.business{
+  font-size:34px;
+  font-weight:900;
+  letter-spacing:2px;
   margin-top:8px;
-  padding:14px 10px;
-  background:#f6f6f6;
-  border-radius:12px;
+}
+
+.business-sub{
+  margin-top:4px;
+  font-size:18px;
+  font-weight:800;
+  color:#c79d38;
+  letter-spacing:3px;
+}
+
+.slogan{
+  margin-top:12px;
+  font-size:14px;
+  color:#d3d3d3;
+}
+
+/* İÇERİK */
+.content{
+  padding:26px 22px 28px;
+}
+
+.bank-card{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:18px;
+  border:1px solid #e7e7e7;
+  border-radius:18px;
+  background:#fafafa;
+}
+
+.bank-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.akbank-logo{
+  font-size:42px;
+  font-weight:900;
+  color:#e31b23;
+  line-height:1;
+}
+
+.bank-name{
+  font-size:22px;
+  font-weight:900;
+}
+
+.account{
+  text-align:right;
+}
+
+.account-label{
+  font-size:10px;
+  letter-spacing:1.4px;
+  color:#888;
+}
+
+.account-name{
+  margin-top:5px;
+  font-size:15px;
+  font-weight:800;
+}
+
+.section-label{
+  margin-top:22px;
+  margin-bottom:8px;
+  font-size:11px;
+  color:#9a7a30;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+.iban-box{
+  padding:16px 14px;
+  border-radius:15px;
+  background:#f3f4f5;
   font-size:17px;
-  font-weight:600;
-  letter-spacing:.5px;
-  color:#222;
+  font-weight:800;
+  line-height:1.5;
+  text-align:center;
   word-break:break-word;
   cursor:pointer;
-  user-select:none;
+  border:1px solid #e4e4e4;
 }
 
-.button{
+.copy-button{
   width:100%;
-  margin-top:20px;
-  padding:14px;
+  margin-top:16px;
+  padding:16px;
   border:0;
-  border-radius:12px;
-  background:#111;
+  border-radius:15px;
+  background:linear-gradient(135deg,#111820,#06090c);
   color:#fff;
   font-size:16px;
-  font-weight:600;
+  font-weight:800;
   cursor:pointer;
+  box-shadow:0 8px 22px rgba(0,0,0,.18);
 }
 
-.button:active{
-  transform:scale(.98);
+.copy-button:active{
+  transform:scale(.985);
 }
 
 .copy-info{
-  margin-top:12px;
-  min-height:20px;
+  display:none;
+  margin-top:14px;
+  padding:13px;
+  border-radius:13px;
+  background:#e6f7ec;
+  color:#198447;
   font-size:14px;
-  color:#16803c;
-  font-weight:600;
+  font-weight:800;
+  text-align:center;
+}
+
+.footer{
+  margin-top:24px;
+  padding-top:18px;
+  border-top:1px solid #eee;
+  text-align:center;
+}
+
+.footer-main{
+  font-size:11px;
+  letter-spacing:2px;
+  color:#666;
+  font-weight:700;
+}
+
+.footer-sub{
+  margin-top:12px;
+  padding:12px 8px;
+  border-radius:12px;
+  background:#101820;
+  color:#d8bd75;
+  font-size:10px;
+  letter-spacing:2px;
+}
+
+/* MOBİL */
+@media (max-width:380px){
+
+  .business{
+    font-size:28px;
+  }
+
+  .business-sub{
+    font-size:15px;
+  }
+
+  .bank-card{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .account{
+    text-align:center;
+  }
+
+  .iban-box{
+    font-size:15px;
+  }
 }
 </style>
 </head>
@@ -97,22 +252,92 @@ body{
 
 <div class="card">
 
-  <div class="bank">AKBANK</div>
+  <div class="hero">
 
-  <div class="label">ALICI</div>
-  <div class="name">EMRE TEKÇİ</div>
+    <div class="small-text">
+      STİL SADECE SAÇTA DEĞİL
+    </div>
 
-  <div class="label">IBAN</div>
+    <div class="icon-circle">
+      ✂
+    </div>
 
-  <div class="iban" onclick="copyIBAN()">
-    TR36 0004 6000 0888 8000 3107 53
+    <div class="business">
+      ANASTASİYA
+    </div>
+
+    <div class="business-sub">
+      ERKEK KUAFÖRÜ
+    </div>
+
+    <div class="slogan">
+      Bakımlı Görün, Kendini İyi Hisset
+    </div>
+
   </div>
 
-  <button class="button" onclick="copyIBAN()">
-    IBAN'ı Kopyala
-  </button>
+  <div class="content">
 
-  <div class="copy-info" id="copyInfo"></div>
+    <div class="bank-card">
+
+      <div class="bank-left">
+        <div class="akbank-logo">A</div>
+
+        <div class="bank-name">
+          AKBANK
+        </div>
+      </div>
+
+      <div class="account">
+        <div class="account-label">
+          HESAP SAHİBİ
+        </div>
+
+        <div class="account-name">
+          EMRE TEKÇİ
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-label">
+      IBAN NUMARASI
+    </div>
+
+    <div
+      class="iban-box"
+      onclick="copyIBAN()"
+    >
+      TR36 0004 6000 0888 8000 3107 53
+    </div>
+
+    <button
+      class="copy-button"
+      onclick="copyIBAN()"
+    >
+      📋 IBAN'ı Kopyala
+    </button>
+
+    <div
+      class="copy-info"
+      id="copyInfo"
+    >
+      ✓ IBAN kopyalandı
+    </div>
+
+    <div class="footer">
+
+      <div class="footer-main">
+        ✂ &nbsp; İYİ GÖRÜNMEK BİR TERCİHTİR
+      </div>
+
+      <div class="footer-sub">
+        SAÇ &nbsp; • &nbsp; SAKAL &nbsp; • &nbsp; STİL &nbsp; • &nbsp; ÖZGÜVEN
+      </div>
+
+    </div>
+
+  </div>
 
 </div>
 
@@ -123,12 +348,15 @@ function copyIBAN(){
 
   navigator.clipboard.writeText(iban).then(() => {
 
-    document.getElementById("copyInfo").textContent =
-      "IBAN kopyalandı";
+    const info =
+      document.getElementById("copyInfo");
 
-    const text = new SpeechSynthesisUtterance(
-      "IBAN kopyalandı"
-    );
+    info.style.display = "block";
+
+    const text =
+      new SpeechSynthesisUtterance(
+        "IBAN kopyalandı"
+      );
 
     text.lang = "tr-TR";
     text.rate = 1;
@@ -137,8 +365,16 @@ function copyIBAN(){
     speechSynthesis.speak(text);
 
     setTimeout(() => {
-      document.getElementById("copyInfo").textContent = "";
-    }, 2500);
+
+      info.style.display = "none";
+
+    },2500);
+
+  }).catch(() => {
+
+    alert(
+      "IBAN: TR360004600008888000310753"
+    );
 
   });
 
