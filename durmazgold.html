@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Durmaz Gold - Ödeme</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  background:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  color:#111;
+}
+
+.kart{
+  width:100%;
+  max-width:430px;
+  background:#fff;
+  border:2px solid #d4af37;
+  border-radius:28px;
+  padding:32px 24px;
+  text-align:center;
+  box-shadow:0 12px 40px rgba(0,0,0,.10);
+}
+
+/* LOGO */
+.logo{
+  width:78px;
+  height:78px;
+  margin:0 auto 14px;
+  border-radius:50%;
+  background:#111;
+  border:3px solid #d4af37;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#d4af37;
+  font-size:27px;
+  font-weight:900;
+  letter-spacing:-2px;
+}
+
+h1{
+  margin:0;
+  font-size:27px;
+  font-weight:900;
+  letter-spacing:.5px;
+}
+
+.aciklama{
+  margin-top:7px;
+  margin-bottom:25px;
+  font-size:14px;
+  color:#777;
+}
+
+.banka{
+  border:1px solid #e7e7e7;
+  border-radius:20px;
+  padding:20px 16px;
+  margin-top:16px;
+  background:#fff;
+}
+
+.bankaAdi{
+  font-size:19px;
+  font-weight:900;
+  margin-bottom:17px;
+}
+
+.ziraat{
+  color:#d71920;
+}
+
+.kuveyt{
+  color:#00865f;
+}
+
+.baslik{
+  color:#999;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1px;
+  margin-bottom:5px;
+}
+
+.sahip{
+  font-size:17px;
+  font-weight:800;
+  margin-bottom:17px;
+}
+
+.iban{
+  background:#f5f5f5;
+  border-radius:13px;
+  padding:14px 8px;
+  margin-bottom:13px;
+  font-family:Consolas,monospace;
+  font-size:15px;
+  font-weight:800;
+  line-height:1.5;
+  color:#111;
+}
+
+.btn{
+  width:100%;
+  border:0;
+  border-radius:13px;
+  padding:14px 10px;
+  color:#fff;
+  font-size:15px;
+  font-weight:900;
+  cursor:pointer;
+  transition:.15s;
+}
+
+.btn:active{
+  transform:scale(.98);
+}
+
+.ziraatBtn{
+  background:#d71920;
+}
+
+.kuveytBtn{
+  background:#00865f;
+}
+
+.altYazi{
+  margin-top:23px;
+  color:#aaa;
+  font-size:12px;
+}
+
+/* KOPYALANDI MESAJI */
+.toast{
+  position:fixed;
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%) translateY(30px);
+  background:#111;
+  color:#fff;
+  padding:13px 22px;
+  border-radius:14px;
+  font-size:14px;
+  font-weight:800;
+  opacity:0;
+  visibility:hidden;
+  transition:.25s;
+  white-space:nowrap;
+  box-shadow:0 8px 25px rgba(0,0,0,.25);
+}
+
+.toast.goster{
+  opacity:1;
+  visibility:visible;
+  transform:translateX(-50%) translateY(0);
+}
+
+@media(max-width:480px){
+
+  body{
+    padding:14px;
+  }
+
+  .kart{
+    padding:27px 18px;
+    border-radius:24px;
+  }
+
+  .iban{
+    font-size:14px;
+  }
+}
+</style>
+</head>
+
+
+<body>
+
+<div class="kart">
+
+  <div class="logo">DG</div>
+
+  <h1>DURMAZ GOLD</h1>
+
+  <div class="aciklama">
+    Ödeme yapmak istediğiniz bankanın IBAN numarasını kopyalayabilirsiniz.
+  </div>
+
+
+  <!-- ZİRAAT BANKASI -->
+
+  <div class="banka">
+
+    <div class="bankaAdi ziraat">
+      ZİRAAT BANKASI
+    </div>
+
+    <div class="baslik">
+      HESAP SAHİBİ
+    </div>
+
+    <div class="sahip">
+      ARAP DURMAZ
+    </div>
+
+    <div class="baslik">
+      IBAN
+    </div>
+
+    <div class="iban">
+      TR13 0001 0003 9105 5913 3150 01
+    </div>
+
+    <button
+      class="btn ziraatBtn"
+      onclick="ibanKopyala('TR130001000391055913315001','Ziraat Bankası')">
+      IBAN KOPYALA
+    </button>
+
+  </div>
+
+
+  <!-- KUVEYT TÜRK -->
+
+  <div class="banka">
+
+    <div class="bankaAdi kuveyt">
+      KUVEYT TÜRK
+    </div>
+
+    <div class="baslik">
+      HESAP SAHİBİ
+    </div>
+
+    <div class="sahip">
+      ARAP DURMAZ
+    </div>
+
+    <div class="baslik">
+      IBAN
+    </div>
+
+    <div class="iban">
+      TR70 0020 5000 0988 4059 7000 01
+    </div>
+
+    <button
+      class="btn kuveytBtn"
+      onclick="ibanKopyala('TR700020500009884059700001','Kuveyt Türk')">
+      IBAN KOPYALA
+    </button>
+
+  </div>
+
+
+  <div class="altYazi">
+    Güvenli ödeme için IBAN bilgilerini kontrol ediniz.
+  </div>
+
+</div>
+
+
+<div id="toast" class="toast">
+  IBAN kopyalandı ✓
+</div>
+
+
+<script>
+
+function ibanKopyala(iban,banka){
+
+  if(navigator.clipboard){
+
+    navigator.clipboard.writeText(iban)
+    .then(function(){
+      mesajGoster(banka + " IBAN kopyalandı ✓");
+    })
+    .catch(function(){
+      eskiYontem(iban,banka);
+    });
+
+  }else{
+
+    eskiYontem(iban,banka);
+
+  }
+
+}
+
+
+function eskiYontem(iban,banka){
+
+  const alan = document.createElement("textarea");
+
+  alan.value = iban;
+
+  document.body.appendChild(alan);
+
+  alan.select();
+
+  document.execCommand("copy");
+
+  document.body.removeChild(alan);
+
+  mesajGoster(banka + " IBAN kopyalandı ✓");
+
+}
+
+
+function mesajGoster(mesaj){
+
+  const toast = document.getElementById("toast");
+
+  toast.innerText = mesaj;
+
+  toast.classList.add("goster");
+
+  setTimeout(function(){
+
+    toast.classList.remove("goster");
+
+  },2000);
+
+}
+
+</script>
+
+</body>
+</html>
