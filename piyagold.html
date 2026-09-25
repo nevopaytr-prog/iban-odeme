@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piya Gold - Ödeme</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  background:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  color:#111;
+}
+
+.kart{
+  width:100%;
+  max-width:430px;
+  background:#fff;
+  border:2px solid #d4af37;
+  border-radius:28px;
+  padding:32px 24px;
+  text-align:center;
+  box-shadow:0 12px 40px rgba(0,0,0,.10);
+}
+
+.logo{
+  width:78px;
+  height:78px;
+  margin:0 auto 14px;
+  border-radius:50%;
+  background:#111;
+  border:3px solid #d4af37;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#d4af37;
+  font-size:27px;
+  font-weight:900;
+}
+
+h1{
+  margin:0;
+  font-size:28px;
+  font-weight:900;
+}
+
+.aciklama{
+  margin:7px 0 25px;
+  color:#777;
+  font-size:14px;
+}
+
+.banka{
+  border:1px solid #e7e7e7;
+  border-radius:20px;
+  padding:20px 16px;
+  margin-top:16px;
+}
+
+.bankaAdi{
+  font-size:19px;
+  font-weight:900;
+  margin-bottom:17px;
+}
+
+.akbank{color:#e30613}
+.ziraat{color:#d71920}
+
+.baslik{
+  color:#999;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1px;
+  margin-bottom:5px;
+}
+
+.sahip{
+  font-size:17px;
+  font-weight:800;
+  margin-bottom:17px;
+}
+
+.iban{
+  background:#f5f5f5;
+  border-radius:13px;
+  padding:14px 7px;
+  margin-bottom:13px;
+  font-family:Consolas,monospace;
+  font-size:15px;
+  font-weight:800;
+  line-height:1.5;
+}
+
+.btn{
+  width:100%;
+  border:0;
+  border-radius:13px;
+  padding:14px 10px;
+  color:#fff;
+  font-size:15px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.akbankBtn{background:#e30613}
+.ziraatBtn{background:#d71920}
+
+.toast{
+  position:fixed;
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%) translateY(30px);
+  background:#111;
+  color:#fff;
+  padding:13px 22px;
+  border-radius:14px;
+  font-weight:800;
+  opacity:0;
+  visibility:hidden;
+  transition:.25s;
+  white-space:nowrap;
+}
+
+.toast.goster{
+  opacity:1;
+  visibility:visible;
+  transform:translateX(-50%) translateY(0);
+}
+
+.alt{
+  margin-top:22px;
+  color:#aaa;
+  font-size:12px;
+}
+
+@media(max-width:480px){
+  body{padding:14px}
+  .kart{padding:27px 18px}
+  .iban{font-size:14px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="kart">
+
+  <div class="logo">PG</div>
+
+  <h1>PİYA GOLD</h1>
+
+  <div class="aciklama">
+    Ödeme yapmak istediğiniz bankanın IBAN numarasını kopyalayabilirsiniz.
+  </div>
+
+
+  <!-- SOL TARAF / AKBANK -->
+
+  <div class="banka">
+
+    <div class="bankaAdi akbank">
+      AKBANK
+    </div>
+
+    <div class="baslik">HESAP SAHİBİ</div>
+
+    <div class="sahip">
+      MESUT SALA
+    </div>
+
+    <div class="baslik">IBAN</div>
+
+    <div class="iban">
+      TR62 0004 6013 7288 8000 1485 77
+    </div>
+
+    <button
+      class="btn akbankBtn"
+      onclick="kopyala(
+      'TR620004601372888000148577',
+      'Akbank'
+      )">
+      IBAN KOPYALA
+    </button>
+
+  </div>
+
+
+  <!-- SAĞ TARAF / ZİRAAT -->
+
+  <div class="banka">
+
+    <div class="bankaAdi ziraat">
+      ZİRAAT BANKASI
+    </div>
+
+    <div class="baslik">HESAP SAHİBİ</div>
+
+    <div class="sahip">
+      MESUT SALA
+    </div>
+
+    <div class="baslik">IBAN</div>
+
+    <div class="iban">
+      TR61 0001 0020 0063 6088 7050 09
+    </div>
+
+    <button
+      class="btn ziraatBtn"
+      onclick="kopyala(
+      'TR610001002000636088705009',
+      'Ziraat Bankası'
+      )">
+      IBAN KOPYALA
+    </button>
+
+  </div>
+
+  <div class="alt">
+    Güvenli ödeme için IBAN bilgilerini kontrol ediniz.
+  </div>
+
+</div>
+
+
+<div id="toast" class="toast">
+  IBAN kopyalandı ✓
+</div>
+
+
+<script>
+function kopyala(iban,banka){
+
+  if(navigator.clipboard){
+
+    navigator.clipboard.writeText(iban)
+    .then(function(){
+      mesaj(banka + " IBAN kopyalandı ✓");
+    })
+    .catch(function(){
+      eskiKopyala(iban,banka);
+    });
+
+  }else{
+    eskiKopyala(iban,banka);
+  }
+}
+
+function eskiKopyala(iban,banka){
+
+  const alan=document.createElement("textarea");
+
+  alan.value=iban;
+
+  document.body.appendChild(alan);
+
+  alan.select();
+
+  document.execCommand("copy");
+
+  document.body.removeChild(alan);
+
+  mesaj(banka + " IBAN kopyalandı ✓");
+}
+
+function mesaj(yazi){
+
+  const toast=document.getElementById("toast");
+
+  toast.innerText=yazi;
+
+  toast.classList.add("goster");
+
+  setTimeout(function(){
+    toast.classList.remove("goster");
+  },2000);
+}
+</script>
+
+</body>
+</html>
