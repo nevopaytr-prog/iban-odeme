@@ -1,9 +1,9 @@
-```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Mehmet Gold - Ödeme</title>
 
 <style>
@@ -11,38 +11,34 @@
   box-sizing:border-box;
 }
 
-html,body{
-  margin:0;
-  width:100%;
-  min-height:100%;
-}
-
 body{
-  min-height:100dvh;
+  margin:0;
+  min-height:100vh;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
   background:#fff;
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:10px;
+  padding:20px;
   color:#111;
 }
 
 .kart{
   width:100%;
-  max-width:420px;
+  max-width:430px;
   background:#fff;
   border:2px solid #d4af37;
-  border-radius:22px;
-  padding:18px 16px;
+  border-radius:28px;
+  padding:32px 24px;
   text-align:center;
-  box-shadow:0 8px 28px rgba(0,0,0,.10);
+  box-shadow:0 12px 40px rgba(0,0,0,.10);
 }
 
+/* LOGO */
 .logo{
-  width:58px;
-  height:58px;
-  margin:0 auto 8px;
+  width:78px;
+  height:78px;
+  margin:0 auto 14px;
   border-radius:50%;
   background:#111;
   border:3px solid #d4af37;
@@ -50,128 +46,132 @@ body{
   align-items:center;
   justify-content:center;
   color:#d4af37;
-  font-size:22px;
+  font-size:27px;
   font-weight:900;
+  letter-spacing:-2px;
 }
 
 h1{
   margin:0;
-  font-size:23px;
+  font-size:27px;
   font-weight:900;
   letter-spacing:.5px;
 }
 
 .aciklama{
-  margin:4px 0 12px;
-  font-size:12px;
+  margin-top:7px;
+  margin-bottom:25px;
+  font-size:14px;
   color:#777;
 }
 
 .banka{
   border:1px solid #e7e7e7;
-  border-radius:15px;
-  padding:12px 12px;
-  margin-top:9px;
+  border-radius:20px;
+  padding:20px 16px;
+  margin-top:16px;
   background:#fff;
 }
 
 .bankaAdi{
-  font-size:17px;
+  font-size:19px;
   font-weight:900;
-  margin-bottom:8px;
+  margin-bottom:17px;
 }
 
-.banka1{
+.ziraat{
   color:#d71920;
 }
 
-.banka2{
+.denizbank{
   color:#005baa;
 }
 
 .baslik{
   color:#999;
-  font-size:9px;
+  font-size:11px;
   font-weight:700;
   letter-spacing:1px;
-  margin-bottom:2px;
+  margin-bottom:5px;
 }
 
 .sahip{
-  font-size:15px;
+  font-size:17px;
   font-weight:800;
-  margin-bottom:8px;
+  margin-bottom:17px;
 }
 
 .iban{
   background:#f5f5f5;
-  border-radius:10px;
-  padding:9px 5px;
-  margin:3px 0 8px;
+  border-radius:13px;
+  padding:14px 8px;
+  margin-bottom:13px;
   font-family:Consolas,monospace;
-  font-size:13px;
+  font-size:15px;
   font-weight:800;
-  line-height:1.3;
+  line-height:1.5;
   color:#111;
-  white-space:nowrap;
 }
 
 .btn{
   width:100%;
   border:0;
-  border-radius:10px;
-  padding:11px 8px;
+  border-radius:13px;
+  padding:14px 10px;
   color:#fff;
-  font-size:13px;
+  font-size:15px;
   font-weight:900;
   cursor:pointer;
+  transition:.15s;
 }
 
 .btn:active{
   transform:scale(.98);
 }
 
-.btn1{
+.ziraatBtn{
   background:#d71920;
 }
 
-.btn2{
+.denizbankBtn{
   background:#005baa;
 }
 
 .not{
   background:#fff;
   border:1px solid #d4af37;
-  border-radius:10px;
-  padding:8px;
-  margin-top:10px;
-  font-size:12px;
+  border-radius:13px;
+  padding:12px;
+  margin-top:16px;
+  font-size:13px;
   font-weight:900;
+  line-height:1.45;
   color:#d4af37;
 }
 
 .altYazi{
-  margin-top:9px;
+  margin-top:23px;
   color:#aaa;
-  font-size:10px;
+  font-size:12px;
 }
 
+/* KOPYALANDI MESAJI */
 .toast{
   position:fixed;
-  bottom:15px;
+  bottom:25px;
   left:50%;
   transform:translateX(-50%) translateY(30px);
   background:#111;
   color:#fff;
-  padding:11px 18px;
-  border-radius:12px;
-  font-size:13px;
+  padding:13px 22px;
+  border-radius:14px;
+  font-size:14px;
   font-weight:800;
   opacity:0;
   visibility:hidden;
   transition:.25s;
   white-space:nowrap;
-  z-index:999;
+  box-shadow:0 8px 25px rgba(0,0,0,.25);
 }
 
 .toast.goster{
@@ -180,127 +180,19 @@ h1{
   transform:translateX(-50%) translateY(0);
 }
 
-/* Küçük telefonlar */
-@media(max-width:380px){
+@media(max-width:480px){
+
   body{
-    padding:6px;
+    padding:14px;
   }
 
   .kart{
-    padding:13px 11px;
-    border-radius:18px;
+    padding:27px 18px;
+    border-radius:24px;
   }
 
-  .logo{
-    width:48px;
-    height:48px;
-    font-size:18px;
-    margin-bottom:5px;
-  }
-
-  h1{
-    font-size:20px;
-  }
-
-  .aciklama{
-    font-size:11px;
-    margin-bottom:7px;
-  }
-
-  .banka{
-    padding:9px;
-    margin-top:6px;
-  }
-
-  .bankaAdi{
-    font-size:15px;
-    margin-bottom:5px;
-  }
-
-  .sahip{
+  .iban{
     font-size:14px;
-    margin-bottom:5px;
-  }
-
-  .iban{
-    font-size:11.5px;
-    padding:7px 3px;
-    margin-bottom:6px;
-  }
-
-  .btn{
-    padding:9px 6px;
-    font-size:12px;
-  }
-
-  .not{
-    margin-top:7px;
-    padding:6px;
-    font-size:11px;
-  }
-
-  .altYazi{
-    margin-top:6px;
-    font-size:9px;
-  }
-}
-
-/* Ekran yüksekliği kısa telefonlar */
-@media(max-height:700px){
-  body{
-    align-items:flex-start;
-    padding-top:6px;
-  }
-
-  .kart{
-    padding-top:12px;
-    padding-bottom:12px;
-  }
-
-  .logo{
-    width:46px;
-    height:46px;
-    font-size:18px;
-    margin-bottom:4px;
-  }
-
-  h1{
-    font-size:20px;
-  }
-
-  .aciklama{
-    margin:3px 0 6px;
-  }
-
-  .banka{
-    padding:8px 10px;
-    margin-top:6px;
-  }
-
-  .bankaAdi{
-    margin-bottom:5px;
-  }
-
-  .sahip{
-    margin-bottom:5px;
-  }
-
-  .iban{
-    padding:7px 4px;
-    margin-bottom:6px;
-  }
-
-  .btn{
-    padding:9px;
-  }
-
-  .not{
-    margin-top:6px;
-    padding:6px;
-  }
-
-  .altYazi{
-    margin-top:5px;
   }
 }
 </style>
@@ -315,38 +207,75 @@ h1{
   <h1>MEHMET GOLD</h1>
 
   <div class="aciklama">
-    Ödeme yapmak istediğiniz IBAN numarasını kopyalayabilirsiniz.
+    Ödeme yapmak istediğiniz bankanın IBAN numarasını kopyalayabilirsiniz.
   </div>
+
+
+  <!-- ZİRAAT BANKASI -->
 
   <div class="banka">
-    <div class="bankaAdi banka1">ZİRAAT BANKASI</div>
 
-    <div class="baslik">HESAP SAHİBİ</div>
-    <div class="sahip">HABİP KORKUTAN</div>
+    <div class="bankaAdi ziraat">
+      ZİRAAT BANKASI
+    </div>
 
-    <div class="baslik">IBAN</div>
-    <div class="iban">TR68 0001 0090 1025 0204 2050 04</div>
+    <div class="baslik">
+      HESAP SAHİBİ
+    </div>
 
-    <button class="btn btn1"
-    onclick="ibanKopyala('TR680001009010250204205004')">
+    <div class="sahip">
+      HABİP KORKUTAN
+    </div>
+
+    <div class="baslik">
+      IBAN
+    </div>
+
+    <div class="iban">
+      TR68 0001 0090 1025 0204 2050 04
+    </div>
+
+    <button
+      class="btn ziraatBtn"
+      onclick="ibanKopyala('TR680001009010250204205004','Ziraat Bankası')">
       IBAN KOPYALA
     </button>
+
   </div>
+
+
+  <!-- DENİZBANK -->
 
   <div class="banka">
-    <div class="bankaAdi banka2">DENİZBANK</div>
 
-    <div class="baslik">HESAP SAHİBİ</div>
-    <div class="sahip">MALİK KORKUTAN</div>
+    <div class="bankaAdi denizbank">
+      DENİZBANK
+    </div>
 
-    <div class="baslik">IBAN</div>
-    <div class="iban">TR90 0013 4000 0200 3969 4000 01</div>
+    <div class="baslik">
+      HESAP SAHİBİ
+    </div>
 
-    <button class="btn btn2"
-    onclick="ibanKopyala('TR900013400002003969400001')">
+    <div class="sahip">
+      MALİK KORKUTAN
+    </div>
+
+    <div class="baslik">
+      IBAN
+    </div>
+
+    <div class="iban">
+      TR90 0013 4000 0200 3969 4000 01
+    </div>
+
+    <button
+      class="btn denizbankBtn"
+      onclick="ibanKopyala('TR900013400002003969400001','DenizBank')">
       IBAN KOPYALA
     </button>
+
   </div>
+
 
   <div class="not">
     Açıklama : Altın Bedeli &amp; T.C.
@@ -358,40 +287,71 @@ h1{
 
 </div>
 
+
 <div id="toast" class="toast">
   IBAN kopyalandı ✓
 </div>
 
+
 <script>
-function ibanKopyala(iban){
-  if(navigator.clipboard && window.isSecureContext){
+
+function ibanKopyala(iban,banka){
+
+  if(navigator.clipboard){
+
     navigator.clipboard.writeText(iban)
-      .then(()=>mesajGoster())
-      .catch(()=>eskiYontem(iban));
+    .then(function(){
+      mesajGoster(banka + " IBAN kopyalandı ✓");
+    })
+    .catch(function(){
+      eskiYontem(iban,banka);
+    });
+
   }else{
-    eskiYontem(iban);
+
+    eskiYontem(iban,banka);
+
   }
+
 }
 
-function eskiYontem(iban){
-  const a=document.createElement("textarea");
-  a.value=iban;
-  a.style.position="fixed";
-  a.style.opacity="0";
-  document.body.appendChild(a);
-  a.select();
+
+function eskiYontem(iban,banka){
+
+  const alan = document.createElement("textarea");
+
+  alan.value = iban;
+
+  document.body.appendChild(alan);
+
+  alan.select();
+
   document.execCommand("copy");
-  a.remove();
-  mesajGoster();
+
+  document.body.removeChild(alan);
+
+  mesajGoster(banka + " IBAN kopyalandı ✓");
+
 }
 
-function mesajGoster(){
-  const t=document.getElementById("toast");
-  t.classList.add("goster");
-  setTimeout(()=>t.classList.remove("goster"),1800);
+
+function mesajGoster(mesaj){
+
+  const toast = document.getElementById("toast");
+
+  toast.innerText = mesaj;
+
+  toast.classList.add("goster");
+
+  setTimeout(function(){
+
+    toast.classList.remove("goster");
+
+  },2000);
+
 }
+
 </script>
 
 </body>
 </html>
-```
