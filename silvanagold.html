@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Silvana Gold - Ödeme</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #111111;
+}
+
+.kart {
+    width: 100%;
+    max-width: 430px;
+    background: #ffffff;
+    border: 2px solid #d4af37;
+    border-radius: 28px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    border: 2px solid #d4af37;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #b08d20;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+h1 {
+    margin: 0;
+    font-size: 30px;
+    color: #b08d20;
+    letter-spacing: 1px;
+}
+
+.alt {
+    margin-top: 8px;
+    color: #777777;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.cizgi {
+    width: 70px;
+    height: 2px;
+    background: #d4af37;
+    margin: 25px auto;
+}
+
+.bilgi {
+    background: #fafafa;
+    border: 1px solid #dddddd;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.baslik {
+    color: #777777;
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.deger {
+    color: #111111;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.iban {
+    font-family: Consolas, monospace;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+    color: #111111;
+}
+
+.albaraka-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    background: #008755;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.albaraka-btn:hover {
+    background: #006b43;
+}
+
+.mesaj {
+    display: none;
+    margin-top: 15px;
+    color: #008755;
+    font-weight: bold;
+}
+
+.aciklama {
+    background: #fff9e9;
+    border: 1px solid #d4af37;
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.aciklama strong {
+    color: #b08d20;
+}
+
+.altbilgi {
+    margin-top: 22px;
+    color: #888888;
+    font-size: 12px;
+    line-height: 1.5;
+}
+</style>
+</head>
+
+<body>
+
+<div class="kart">
+
+    <div class="logo">SG</div>
+
+    <h1>SİLVANA GOLD</h1>
+
+    <div class="alt">GÜVENLİ ÖDEME</div>
+
+    <div class="cizgi"></div>
+
+    <!-- ALBARAKA TÜRK -->
+
+    <div class="bilgi">
+
+        <div class="baslik">HESAP SAHİBİ</div>
+        <div class="deger">NGC İNŞAAT</div>
+
+        <div class="baslik">BANKA</div>
+        <div class="deger">Albaraka Türk</div>
+
+        <div class="baslik">IBAN</div>
+        <div class="deger iban">
+            TR38 0020 3000 1068 1680 0000 01
+        </div>
+
+        <button class="albaraka-btn"
+          onclick="kopyala('TR380020300010681680000001')">
+            ALBARAKA IBAN'I KOPYALA
+        </button>
+
+        <div class="mesaj" id="mesajAlbaraka" role="status">
+            ✓ Albaraka IBAN kopyalandı
+        </div>
+
+        <div class="aciklama">
+            <strong>ÖDEME AÇIKLAMASI</strong>
+            <div>
+                Lütfen açıklama kısmına
+                <b>Altın bedeli ve T.C. kimlik
+                numaranızı</b> yazınız.
+            </div>
+        </div>
+
+    </div>
+
+    <div class="altbilgi">
+        Ödeme yapmak için IBAN numarasını
+        kopyalayabilirsiniz.
+    </div>
+
+</div>
+
+<script>
+async function kopyala(iban) {
+    try {
+        await navigator.clipboard.writeText(iban);
+
+        const mesaj =
+            document.getElementById("mesajAlbaraka");
+
+        mesaj.style.display = "block";
+
+        setTimeout(function() {
+            mesaj.style.display = "none";
+        }, 2500);
+
+    } catch (error) {
+        alert("IBAN kopyalanamadı. Lütfen tekrar deneyin.");
+    }
+}
+</script>
+
+</body>
+</html>
